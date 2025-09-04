@@ -17,7 +17,7 @@ export default function RootLayout({
       <body
         className={`antialiased font-poppins w-full h-full flex justify-center items-center`}
       >
-        <main className="max-w-6xl md:h-screen h-full w-full relative pt-24">
+        <main className="max-w-6xl md:h-screen h-full w-full relative pt-28 pb-2">
           <Headers />
           {children}
         </main>
