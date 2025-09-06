@@ -5,9 +5,23 @@ import { HappyIcon } from "@/app/_assets/icon";
 import { listsData } from "@/app/data";
 import ListsCard from "./ListsCard";
 import listStore from "@/app/_store/listStore";
+import { List } from "@/app/type";
+import ListModal from "../modal/ListModal";
 
 const Lists = () => {
   const [listSelected, setlistSelected] = useState(listsData[0]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState<List | null>(null);
+
+  const handleAdd = () => {
+    setSelected(null);
+    setIsOpen(true);
+  };
+  // const handleEdit = (list: List) => {
+  //   setSelected(list);
+  //   setIsOpen(true);
+  // };
+
   const { setItem } = listStore();
   useEffect(() => {
     setItem(listSelected.id, listSelected.title);
@@ -20,7 +34,10 @@ const Lists = () => {
         <HappyIcon />
       </div>
 
-      <button className="px-4 py-2 bg-blue rounded-lg w-fit text-white capitalize cursor-pointer hover:bg-blue/80 transition">
+      <button
+        onClick={handleAdd}
+        className="px-4 py-2 bg-blue rounded-lg w-fit text-white capitalize cursor-pointer hover:bg-blue/80 transition"
+      >
         Add new list
       </button>
 
@@ -37,6 +54,14 @@ const Lists = () => {
           />
         ))}
       </div>
+
+      {isOpen && (
+        <ListModal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          list={selected ?? undefined}
+        />
+      )}
     </div>
   );
 };

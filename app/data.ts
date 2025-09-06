@@ -7,123 +7,123 @@ export const dataProducts: Products = {
       name: "Yaourt",
       quantity: 3,
       price: 500,
-      category: "Produit Laitier",
-      status: true
+      status: true,
+      category: { id: 1, name: "Produit Laitier" },
     },
     {
       id: 2,
       name: "Lait",
       quantity: 2,
       price: 400,
-      category: "Boisson",
-      status: true
+      status: true,
+      category: { id: 2, name: "Boisson" },
     },
     {
       id: 3,
       name: "Fromage",
       quantity: 1,
       price: 1200,
-      category: "Produit Laitier",
-      status: false
+      status: false,
+      category: { id: 1, name: "Produit Laitier" },
     },
     {
       id: 4,
       name: "Beurre",
       quantity: 5,
       price: 800,
-      category: "Produit Laitier",
-      status: true
+      status: true,
+      category: { id: 1, name: "Produit Laitier" },
     },
     {
       id: 5,
       name: "Crème",
       quantity: 2,
       price: 600,
-      category: "Produit Laitier",
-      status: true
+      status: true,
+      category: { id: 1, name: "Produit Laitier" },
     },
     {
       id: 6,
       name: "Chips",
       quantity: 4,
       price: 300,
-      category: "Snacks",
-      status: true
+      status: true,
+      category: { id: 3, name: "Snacks" },
     },
     {
       id: 7,
       name: "Jus d'orange",
       quantity: 6,
       price: 700,
-      category: "Boisson",
-      status: false
+      status: false,
+      category: { id: 2, name: "Boisson" },
     },
     {
       id: 8,
       name: "Pomme",
       quantity: 10,
       price: 200,
-      category: "Fruits",
-      status: true
+      status: true,
+      category: { id: 4, name: "Fruits" },
     },
     {
       id: 9,
       name: "Banane",
       quantity: 8,
       price: 150,
-      category: "Fruits",
-      status: true
+      status: true,
+      category: { id: 4, name: "Fruits" },
     },
     {
       id: 10,
       name: "Pain",
       quantity: 3,
       price: 250,
-      category: "Épicerie",
-      status: true
+      status: true,
+      category: { id: 5, name: "Épicerie" },
     },
     {
       id: 11,
       name: "Lait",
       quantity: 4,
       price: 450,
-      category: "Boisson",
-      status: true
+      status: true,
+      category: { id: 2, name: "Boisson" },
     },
     {
       id: 12,
       name: "Fromage",
       quantity: 2,
       price: 1300,
-      category: "Produit Laitier",
-      status: false
+      status: false,
+      category: { id: 1, name: "Produit Laitier" },
     },
     {
       id: 13,
       name: "Yaourt",
       quantity: 5,
       price: 550,
-      category: "Produit Laitier",
-      status: true
+      status: true,
+      category: { id: 1, name: "Produit Laitier" },
     },
     {
       id: 14,
       name: "Chocolat",
       quantity: 7,
       price: 900,
-      category: "Snacks",
-      status: true
+      status: true,
+      category: { id: 3, name: "Snacks" },
     },
     {
       id: 15,
       name: "Crème",
       quantity: 1,
       price: 650,
-      category: "Produit Laitier",
-      status: true
-    }
+      status: true,
+      category: { id: 1, name: "Produit Laitier" },
+    },
   ],
-  amount: 8450
+  amount: 8450,
 };
 
 // data.ts

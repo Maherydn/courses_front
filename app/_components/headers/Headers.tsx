@@ -2,7 +2,7 @@ import DateFilters from "./DateFilters";
 
 const Headers = () => {
   return (
-    <header className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-6xl bg-white z-50">
+    <header className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-6xl bg-white z-20">
       <div className="flex w-full items-center md:h-20 h-fit md:gap-20 md:px-10 px-4 md:pt-0 py-2 ">
         <div className="flex-1  h-full flex md:items-center md:justify-between md:flex-row flex-col gap-2 md:gap-0 ">
           <div className=" h-full flex items-center md:gap-16 gap-4">

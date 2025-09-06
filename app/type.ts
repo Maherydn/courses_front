@@ -3,8 +3,13 @@ export interface Product {
   name: string;
   quantity: number;
   price: number;
-  category: string;
+  category: Category;
   status: boolean;
+}
+
+interface Category {
+  id: number;
+  name: string;
 }
 
 export interface Products {

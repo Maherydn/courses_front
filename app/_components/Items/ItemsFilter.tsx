@@ -1,11 +1,27 @@
-import { DateIcon } from "@/app/_assets/icon";
+import { useState } from "react";
 
-const ItemsFilter = () => {
+interface ItemsFilterProps {
+  onFilterChange: (showOnlyFalse: boolean) => void;
+}
+
+const ItemsFilter: React.FC<ItemsFilterProps> = ({ onFilterChange }) => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
+    onFilterChange(e.target.checked); 
+  };
+
   return (
-    <button className="flex gap-2 border-bordure border-2 rounded-lg px-4 py-1 cursor-pointer hover:bg-slate-300 duration-300">
-      <p>tous</p>
-      <DateIcon />
-    </button>
+    <label className="flex items-center gap-2 cursor-pointer">
+      <span className="text-sm text-black/60">Afficher uniquement les impayés</span>
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={handleChange}
+        className="w-4 h-4 border-2 border-bordure rounded"
+      />
+    </label>
   );
 };
 
