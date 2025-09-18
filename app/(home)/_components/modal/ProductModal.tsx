@@ -1,4 +1,4 @@
-import { Product } from "@/app/type";
+import { Product } from "@/app/(home)/type";
 import ProductForm from "./ProductForm";
 
 interface ProductModalProps {

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Headers from "./_components/headers/Headers";
 
 export const metadata: Metadata = {
   title: "Bazary",
@@ -18,7 +17,6 @@ export default function RootLayout({
         className={`antialiased font-poppins w-full h-full flex justify-center items-center`}
       >
         <main className="max-w-6xl md:h-screen h-full w-full relative pt-28 pb-2">
-          <Headers />
           {children}
         </main>
       </body>

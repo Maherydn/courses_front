@@ -1,7 +1,7 @@
 const title: string[] = [
   "product",
   "quantity",
-  "price",
+  "unit price",
   "category",
   "status",
   "action",

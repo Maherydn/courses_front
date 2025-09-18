@@ -13,7 +13,7 @@ export function filterArticles(
         item.name.toLowerCase().includes(lowerSearch) ||
         item.category.name.toLowerCase().includes(lowerSearch);
 
-      const matchStatus = onlyFalse ? item.status === false : true;
+      const matchStatus = onlyFalse ? item.status == false : true;
 
       return matchSearch && matchStatus;
     }),

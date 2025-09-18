@@ -1,4 +1,4 @@
-import { List } from "@/app/type";
+import { List } from "@/app/(home)/type";
 import ListForm from "./ListForm";
 
 interface ListModalProps {
@@ -7,11 +7,7 @@ interface ListModalProps {
   list?: List;
 }
 
-const ListModal: React.FC<ListModalProps> = ({
-  isOpen,
-  onClose,
-  list,
-}) => {
+const ListModal: React.FC<ListModalProps> = ({ isOpen, onClose, list }) => {
   return (
     <dialog
       open={isOpen}

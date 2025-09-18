@@ -3,18 +3,32 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { DateIcon } from "@/app/_assets/icon";
-import { formatDate } from "@/app/_utils/formatDate";
+import { DateIcon } from "@/app/(home)/_assets/icon";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const DateFilters = () => {
-  // Par défaut -> mois actuel
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const currentMonth = searchParams.get("month");
+  const currentYear = searchParams.get("year");
+
+  const [selectedDate, setSelectedDate] = useState<Date | null>(
+    currentMonth && currentYear
+      ? new Date(Number(currentYear), Number(currentMonth) - 1)
+      : new Date()
+  );
 
   const handleChange = (date: Date | null) => {
     setSelectedDate(date);
-    const dateFormated = formatDate(date); // on pourra adapter formatDate si besoin
-    console.log("Mois choisi :", date);
-    console.log("Mois formaté :", dateFormated);
+
+    if (date) {
+      const month = date.getMonth() + 1; // 0-indexed
+      const year = date.getFullYear();
+
+      // Mise à jour de l’URL → ex: /invoices?month=9&year=2025
+      router.push(`?month=${month}&year=${year}`);
+    }
   };
 
   return (

@@ -1,5 +1,9 @@
+"use client";
+
 import { useState } from "react";
-import { Product } from "@/app/type";
+import { Product } from "@/app/(home)/type";
+import { createProduct, updateProduct } from "../../_services/ProductServices";
+import listStore from "../../_store/listStore";
 
 interface ProductFormProps {
   product?: Product;
@@ -12,45 +16,77 @@ const categories = [
   { id: 3, name: "Épicerie" },
 ];
 
+const unites = [
+  { id: 1, name: "Kg" },
+  { id: 2, name: "L" },
+  { id: 3, name: "u" },
+];
+
 const ProductForm: React.FC<ProductFormProps> = ({ product, onSuccess }) => {
+  const { item } = listStore();
+
   const initialForm = product
     ? {
         id: product.id,
         name: product.name,
         quantity: product.quantity,
+        unitId: product.unit.id,
         price: product.price,
         status: product.status,
         categoryId: product.category.id,
+        purchaseListId: item.id,
       }
     : {
         name: "",
         quantity: 0,
+        unitId: unites[0].id,
         price: 0,
         status: false,
         categoryId: categories[0].id,
+        purchaseListId: item.id,
       };
 
   const [form, setForm] = useState(initialForm);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+
     if (name === "category") {
       setForm({ ...form, categoryId: Number(value) });
     } else if (name === "quantity" || name === "price") {
       setForm({ ...form, [name]: Number(value) });
     } else if (name === "status") {
-      setForm({ ...form, status: (e.target as HTMLInputElement).checked });
+      const target = e.target as HTMLInputElement;
+      setForm({ ...form, status: target.checked });
+    } else if (name === "unit") {
+      setForm({ ...form, unitId: Number(value) });
     } else {
       setForm({ ...form, [name]: value });
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Produit saisi :", form);
-    onSuccess();
+    if (!form.name.trim()) return; // éviter d'envoyer un nom vide
+    setLoading(true);
+
+    try {
+      if (product?.id) {
+        // Update product
+        await updateProduct(product.id, form);
+      } else {
+        // Create product
+        await createProduct(form);
+      }
+      onSuccess();
+    } catch (err) {
+      console.error("Erreur lors de l'enregistrement du produit :", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,20 +106,41 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSuccess }) => {
         />
       </div>
 
-      {/* Quantité */}
-      <div className="flex flex-col">
-        <label htmlFor="quantity" className="mb-1 text-gray-700 font-medium">
-          Quantité
-        </label>
-        <input
-          id="quantity"
-          type="number"
-          name="quantity"
-          value={form.quantity}
-          onChange={handleChange}
-          placeholder="0"
-          className="border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none"
-        />
+      {/* Quantité + Unité */}
+      <div className="flex w-full justify-between items-end gap-2">
+        <div className="flex flex-col gap-1 flex-1">
+          <label htmlFor="quantity" className="text-gray-700 font-medium">
+            Quantité
+          </label>
+          <input
+            id="quantity"
+            type="number"
+            name="quantity"
+            value={form.quantity}
+            onChange={handleChange}
+            placeholder="0"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none"
+          />
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <label htmlFor="unit" className="text-gray-700 font-medium">
+            Unité
+          </label>
+          <select
+            id="unit"
+            name="unit"
+            value={form.unitId}
+            onChange={handleChange}
+            className="border border-gray-300 rounded-md px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none"
+          >
+            {unites.map((u) => (
+              <option key={u.id} value={u.id}>
+                {u.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {/* Prix */}
@@ -137,7 +194,8 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSuccess }) => {
       {/* Bouton */}
       <button
         type="submit"
-        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md w-full transition-colors duration-200"
+        disabled={loading}
+        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md w-full transition-colors duration-200 disabled:opacity-50"
       >
         {product ? "Modifier" : "Ajouter"}
       </button>

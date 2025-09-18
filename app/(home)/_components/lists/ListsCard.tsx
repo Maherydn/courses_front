@@ -1,5 +1,5 @@
 import React from "react";
-import { List } from "@/app/type";
+import { List } from "@/app/(home)/type";
 
 interface ListsProps {
   list: List;
@@ -22,7 +22,7 @@ const ListsCard: React.FC<ListsProps> = ({ list, idListSelected, onClick }) => {
         <span className="text-lg">...</span>
       </div>
       <div className="flex items-center justify-between">
-        <p className="text-sm text-black/50">{list.date}</p>
+        <p className="text-sm text-black/50">{list.createdAt}</p>
         <p className="text-lg font-semibold">{list.amount} Ar</p>
       </div>
     </div>

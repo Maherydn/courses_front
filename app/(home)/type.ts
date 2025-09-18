@@ -2,12 +2,18 @@ export interface Product {
   id: number;
   name: string;
   quantity: number;
+  unit: Unit;
   price: number;
   category: Category;
   status: boolean;
 }
 
 interface Category {
+  id: number;
+  name: string;
+}
+
+interface Unit {
   id: number;
   name: string;
 }
@@ -20,6 +26,6 @@ export interface Products {
 export interface List {
   id: number;
   title: string;
-  date: string;
+  createdAt: string;
   amount: number;
 }
