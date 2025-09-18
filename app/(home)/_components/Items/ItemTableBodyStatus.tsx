@@ -1,9 +1,11 @@
 interface ItemTableBodyStatusProps {
-  status: boolean;
+  status: number;
 }
 
-const ItemTableBodyStatus: React.FC<ItemTableBodyStatusProps> = ({ status }) => {
-  return status ? (
+const ItemTableBodyStatus: React.FC<ItemTableBodyStatusProps> = ({
+  status,
+}) => {
+  return status == 1 ? (
     <span className="px-2 py-1 text-xs font-medium text-green-600 bg-green-100 rounded-full">
       ✔ Completed
     </span>

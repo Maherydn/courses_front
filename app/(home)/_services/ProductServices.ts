@@ -1,7 +1,7 @@
-import { api } from "@/app/_lib/axios";
+import { Api } from "@/app/_lib/axios";
 
 export const fetchProducts = async (id: number) => {
-  const { data } = await api.get(`/purchase-lists/${id}/products`);
+  const { data } = await Api.get(`/purchase-lists/${id}/products`);
   return data;
 };
 
@@ -11,11 +11,11 @@ export const createProduct = async (product: {
   quantity: number;
   unitId: number;
   price: number;
-  status: boolean;
+  status: number;
   categoryId: number;
   purchaseListId: number;
 }) => {
-  const { data } = await api.post("/products", {
+  const { data } = await Api.post("/products", {
     name: product.name,
     quantity: product.quantity,
     unit_id: product.unitId,
@@ -35,11 +35,11 @@ export const updateProduct = async (
     quantity: number;
     unitId: number;
     price: number;
-    status: boolean;
+    status: number;
     categoryId: number;
   }
 ) => {
-  const { data } = await api.put(`/products/${productId}`, {
+  const { data } = await Api.put(`/products/${productId}`, {
     name: product.name,
     quantity: product.quantity,
     unit_id: product.unitId,
@@ -52,6 +52,6 @@ export const updateProduct = async (
 };
 
 export const toggleStatus = async (id: number) => {
-  const { data } = await api.patch(`/products/${id}/toggle-status`);
+  const { data } = await Api.patch(`/products/${id}/toggle-status`);
   return data;
 };

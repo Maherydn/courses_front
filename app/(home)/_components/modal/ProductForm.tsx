@@ -11,9 +11,9 @@ interface ProductFormProps {
 }
 
 const categories = [
-  { id: 1, name: "Produit Laitier" },
-  { id: 2, name: "Boisson" },
-  { id: 3, name: "Épicerie" },
+  { id: 1, name: "Boisson" },
+  { id: 2, name: "Nourriture" },
+  { id: 3, name: "Autres" },
 ];
 
 const unites = [
@@ -41,7 +41,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSuccess }) => {
         quantity: 0,
         unitId: unites[0].id,
         price: 0,
-        status: false,
+        status: 0,
         categoryId: categories[0].id,
         purchaseListId: item.id,
       };
@@ -60,7 +60,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSuccess }) => {
       setForm({ ...form, [name]: Number(value) });
     } else if (name === "status") {
       const target = e.target as HTMLInputElement;
-      setForm({ ...form, status: target.checked });
+      setForm({ ...form, status: target.checked ? 1 : 0 });
     } else if (name === "unit") {
       setForm({ ...form, unitId: Number(value) });
     } else {
@@ -184,7 +184,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSuccess }) => {
         <input
           type="checkbox"
           name="status"
-          checked={form.status}
+          checked={form.status === 1}
           onChange={handleChange}
           className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
         />

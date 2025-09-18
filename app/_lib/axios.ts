@@ -1,12 +1,12 @@
 import axios from 'axios'
 
 
-export const api = axios.create({
+export const Api = axios.create({
   baseURL: (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000') + '/api'
 })
 
 // Intercepteur requête : ajoute token Authorization
-api.interceptors.request.use(
+Api.interceptors.request.use(
   (config) => {
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem('token')
@@ -20,7 +20,7 @@ api.interceptors.request.use(
 )
 
 // Intercepteur réponse : gère erreur 401 + redirection vers login
-api.interceptors.response.use(
+Api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {

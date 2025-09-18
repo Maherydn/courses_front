@@ -5,7 +5,7 @@ export interface Product {
   unit: Unit;
   price: number;
   category: Category;
-  status: boolean;
+  status: number;
 }
 
 interface Category {

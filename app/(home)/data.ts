@@ -8,7 +8,7 @@ export const dataProducts: Products = {
       quantity: 3,
       unit: { id: 1, name: "g" },
       price: 500,
-      status: true,
+      status: 1,
       category: { id: 1, name: "Produit Laitier" },
     },
     {
@@ -17,7 +17,7 @@ export const dataProducts: Products = {
       quantity: 2,
       unit: { id: 2, name: "L" },
       price: 400,
-      status: true,
+      status: 1,
       category: { id: 2, name: "Boisson" },
     },
     {
@@ -26,7 +26,7 @@ export const dataProducts: Products = {
       quantity: 1,
       unit: { id: 1, name: "g" },
       price: 1200,
-      status: false,
+      status: 0,
       category: { id: 1, name: "Produit Laitier" },
     },
     {
@@ -35,7 +35,7 @@ export const dataProducts: Products = {
       quantity: 5,
       unit: { id: 1, name: "g" },
       price: 800,
-      status: true,
+      status: 1,
       category: { id: 1, name: "Produit Laitier" },
     },
     {
@@ -44,7 +44,7 @@ export const dataProducts: Products = {
       quantity: 2,
       unit: { id: 1, name: "g" },
       price: 600,
-      status: true,
+      status: 1,
       category: { id: 1, name: "Produit Laitier" },
     },
     {
@@ -53,7 +53,7 @@ export const dataProducts: Products = {
       quantity: 4,
       unit: { id: 3, name: "u" },
       price: 300,
-      status: true,
+      status: 1,
       category: { id: 3, name: "Snacks" },
     },
     {
@@ -62,7 +62,7 @@ export const dataProducts: Products = {
       quantity: 6,
       unit: { id: 2, name: "L" },
       price: 700,
-      status: false,
+      status: 0,
       category: { id: 2, name: "Boisson" },
     },
     {
@@ -71,7 +71,7 @@ export const dataProducts: Products = {
       quantity: 10,
       unit: { id: 3, name: "u" },
       price: 200,
-      status: true,
+      status: 1,
       category: { id: 4, name: "Fruits" },
     },
     {
@@ -80,7 +80,7 @@ export const dataProducts: Products = {
       quantity: 8,
       unit: { id: 3, name: "u" },
       price: 150,
-      status: true,
+      status: 1,
       category: { id: 4, name: "Fruits" },
     },
     {
@@ -89,7 +89,7 @@ export const dataProducts: Products = {
       quantity: 3,
       unit: { id: 3, name: "u" },
       price: 250,
-      status: true,
+      status: 1,
       category: { id: 5, name: "Épicerie" },
     },
     {
@@ -98,7 +98,7 @@ export const dataProducts: Products = {
       quantity: 4,
       unit: { id: 2, name: "L" },
       price: 450,
-      status: true,
+      status: 1,
       category: { id: 2, name: "Boisson" },
     },
     {
@@ -107,7 +107,7 @@ export const dataProducts: Products = {
       quantity: 2,
       unit: { id: 1, name: "g" },
       price: 1300,
-      status: false,
+      status: 0,
       category: { id: 1, name: "Produit Laitier" },
     },
     {
@@ -116,7 +116,7 @@ export const dataProducts: Products = {
       quantity: 5,
       unit: { id: 1, name: "g" },
       price: 550,
-      status: true,
+      status: 1,
       category: { id: 1, name: "Produit Laitier" },
     },
     {
@@ -125,7 +125,7 @@ export const dataProducts: Products = {
       quantity: 7,
       unit: { id: 3, name: "u" },
       price: 900,
-      status: true,
+      status: 1,
       category: { id: 3, name: "Snacks" },
     },
     {
@@ -134,7 +134,7 @@ export const dataProducts: Products = {
       quantity: 1,
       unit: { id: 1, name: "g" },
       price: 650,
-      status: true,
+      status: 1,
       category: { id: 1, name: "Produit Laitier" },
     },
   ],
