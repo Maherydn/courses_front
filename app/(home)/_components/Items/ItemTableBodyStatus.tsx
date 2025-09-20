@@ -7,11 +7,11 @@ const ItemTableBodyStatus: React.FC<ItemTableBodyStatusProps> = ({
 }) => {
   return status == 1 ? (
     <span className="px-2 py-1 text-xs font-medium text-green-600 bg-green-100 rounded-full">
-      ✔ Completed
+      ✔ Purchased
     </span>
   ) : (
     <span className="px-2 py-1 text-xs font-medium text-red-600 bg-red-100 rounded-full">
-      ✖ Rejected
+      ✖ Pending
     </span>
   );
 };

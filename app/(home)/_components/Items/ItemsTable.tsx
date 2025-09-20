@@ -24,7 +24,7 @@ const ItemsTable: React.FC<Products> = ({ products, amount }) => {
     <>
       <div className="overflow-x-auto md:h-full h-96 relative">
         <table className="w-full border-collapse text-sm text-left">
-          <thead className="text-gray-600 sticky top-0 bg-white z-10">
+          <thead className="text-gray-600 dark:text-white sticky top-0 bg-white dark:bg-dark z-10">
             <ItemsTableHead />
           </thead>
 
@@ -36,7 +36,7 @@ const ItemsTable: React.FC<Products> = ({ products, amount }) => {
             ) : (
               <tr>
                 <td colSpan={5}>
-                  <div className="flex items-center justify-center h-40 text-gray-500">
+                  <div className="flex items-center justify-center h-40 text-gray-500 dark:text-white">
                     <p>No products available</p>
                   </div>
                 </td>
@@ -46,7 +46,7 @@ const ItemsTable: React.FC<Products> = ({ products, amount }) => {
         </table>
       </div>
 
-      <div className="w-full flex items-center justify-between py-2 sticky bottom-0 px-4 -mt-6 border-2 border-bordure bg-white">
+      <div className="w-full flex items-center justify-between py-2 sticky bottom-0 px-4 -mt-6 border-2 border-bordure bg-white dark:bg-dark">
         <p>Amount</p>
         <p>{amount} ar</p>
       </div>

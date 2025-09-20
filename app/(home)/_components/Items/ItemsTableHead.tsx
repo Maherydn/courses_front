@@ -11,7 +11,7 @@ const ItemsTableHead = () => {
   return (
     <tr className="capitalize">
       {title.map((title, index) => (
-        <th className="px-4 py-2" key={index}>
+        <th className="px-4 py-2 text-nowrap" key={index}>
           {title}
         </th>
       ))}

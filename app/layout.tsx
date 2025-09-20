@@ -12,11 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className="dark" lang="en">
       <body
-        className={`antialiased font-poppins w-full h-full flex justify-center items-center`}
+        className={`antialiased font-poppins w-full h-full flex justify-center items-center bg-white dark:bg-dark`}
       >
-        <main className="max-w-6xl md:h-screen h-full w-full relative pt-28 pb-2">
+        <main className="max-w-6xl md:h-screen h-full w-full relative pt-28 pb-2 ">
           {children}
         </main>
       </body>

@@ -18,11 +18,11 @@ const ListsCard: React.FC<ListsProps> = ({ list, idListSelected, onClick }) => {
       }`}
     >
       <div className="flex justify-between">
-        <h3 className="text-2xl font-medium">{list.title}</h3>
+        <h3 className="text-2xl font-medium dark:text-white">{list.title}</h3>
         <span className="text-lg">...</span>
       </div>
       <div className="flex items-center justify-between">
-        <p className="text-sm text-black/50">{list.createdAt}</p>
+        <p className="text-sm text-black/50 dark:text-white/50">{list.createdAt}</p>
         <p className="text-lg font-semibold">{list.amount} Ar</p>
       </div>
     </div>

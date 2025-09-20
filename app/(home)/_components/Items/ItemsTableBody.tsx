@@ -34,7 +34,7 @@ const ItemsTableBody: React.FC<ItemsTableBodyProps> = ({
   };
 
   return (
-    <tr className="border-b border-t border-2 border-bordure hover:bg-gray-50">
+    <tr className="border-b border-t border-2 border-bordure hover:bg-gray-50 dark:text-white/80">
       <td className="px-4 py-2">{name}</td>
       <td className="px-4 py-2">{quantity + " " + unit.name}</td>
       <td className="px-4 py-2">{price} ar</td>
@@ -47,7 +47,7 @@ const ItemsTableBody: React.FC<ItemsTableBodyProps> = ({
           className="cursor-pointer duration-300 hover:-translate-y-0.5"
           onClick={handleToggleStatus}
         >
-          {status ? <UnLikeIcon /> : <LikeIcone />}
+          {status == 1 ? <UnLikeIcon /> : <LikeIcone />}
         </button>
         <button
           className="cursor-pointer duration-300 hover:-translate-y-0.5"

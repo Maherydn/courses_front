@@ -14,7 +14,7 @@ const ItemsFilter: React.FC<ItemsFilterProps> = ({ onFilterChange }) => {
 
   return (
     <label className="flex items-center gap-2 cursor-pointer">
-      <span className="text-sm text-black/60">Afficher uniquement les impayés</span>
+      <span className="text-sm text-black/60 dark:text-white/60">Afficher uniquement les impayés</span>
       <input
         type="checkbox"
         checked={checked}

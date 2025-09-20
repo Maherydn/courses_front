@@ -58,7 +58,7 @@ const Lists = () => {
   return (
     <div className="flex flex-col items-center md:w-1/3 min-w-0 w-full border-2 border-bordure rounded-xl py-4 gap-6">
       <div className="flex items-center justify-between w-full h-16 px-10">
-        <h2 className="text-3xl font-semibold">Listes</h2>
+        <h2 className="text-3xl font-semibold dark:text-white">Listes</h2>
         <HappyIcon />
       </div>
 
